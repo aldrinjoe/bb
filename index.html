@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for the message icon -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d7d3d3; /* Gray background */
+        }
+        header {
+            background-color: rgb(71, 70, 70);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .message-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(230, 224, 224); /* White background for the message box */
+            color: black; /* Text color black */
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow for depth */
+            border: 2px solid black; /* Black border added */
+        }
+        .message-box p {
+            font-size: 1.2em;
+        }
+        .close-btn {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .close-btn:hover {
+            background-color: #ff4500;
+        }
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .card {
+            background: #fff;
+            border: 2px solid #ccc; /* Light border for each card */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: rgb(62, 60, 60);
+        }
+        .card p {
+            font-size: 1.0em;
+            color: rgb(28, 27, 27);
+            padding: 0 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Cherished Moments</h1>
+        <i class="fas fa-comment-dots message-icon" onclick="toggleMessage()"></i> <!-- Message icon -->
+    </header>
+
+    <div class="message-box" id="messageBox">
+        <p>iloveyouuuuu ayuu laloveee hihi</p>
+        <p>imissyouuuu so muchh, babyyyy nakoo:<</p>
+        <button class="close-btn" onclick="toggleMessage()">Close</button>
+    </div>
+
+    <main>
+        <div class="card">
+            <img src="her.jpeg" alt="Cute Image">
+            <h2>Your Smile</h2>
+            <p>It's the most beautiful thing I've ever seen.</p>
+        </div>
+        <div class="card">
+            <img src="bb.jpeg" alt="Starry Sky">
+            <h2>Our Moments</h2>
+            <p>Every moment with you feels like a dream.</p>
+        </div>
+
+        <div class="card">
+            <img src="bab.jpeg" alt="Cherished Memory">
+            <h2>Unforgettable Moments</h2>
+            <p>Every smile and laugh we share lights up my world like nothing else.</p>
+        </div>
+        
+        <div class="card">
+            <img src="Messenger_creation_D2B8FD2B-59C3-48FC-A11A-4AC4F92BA1CC.png" alt="Cherished Memory">
+            <h2>Cherished Memories</h2>
+            <p>Each memory with you is a treasure I hold dear.</p>
+        </div>
+        <div class="card">
+            <img src="Messenger_creation_DDFCEC77-BA28-4B74-BD76-6BC4D9FED28F.jpeg" alt="Infinite Happiness">
+            <h2>Infinite Happiness</h2>
+            <p>Your presence in my life fills my days with endless joy.</p>
+        </div>
+        <div class="card">
+            <img src="polo.jpeg" alt="You Are My Everything">
+            <h2>You Are My Everything</h2>
+            <p>My world starts and ends with you, my love.</p>
+        </div>
+        <div class="card">
+            <img src="eyes.jpeg" alt="In Your Eyes">
+            <h2>In Your Eyes</h2>
+            <p>When I look into your eyes, I see the whole world I've always dreamed of.</p>
+        </div>
+        <div class="card">
+            <img src="hi.jpeg" alt="Forever Us">
+            <h2>Forever Us</h2>
+            <p>Through every moment, we make memories that will last a lifetime.</p>
+        </div>
+        <div class="card">
+            <img src="tawa.jpeg" alt="Endless Laughter">
+            <h2>Endless Laughter</h2>
+            <p>Your laughter is the melody I never want to stop hearing.</p>
+        </div>
+        <div class="card">
+            <img src="lalove.jpeg" alt="My Heart's Home">
+            <h2>My Heart's Home</h2>
+            <p>With you, I’ve found my true home, a place of warmth and love.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleMessage() {
+            var messageBox = document.getElementById("messageBox");
+            messageBox.style.display = (messageBox.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
